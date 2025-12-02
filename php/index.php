@@ -5,13 +5,10 @@ session_start();
 if(isset($_SESSION["login"])){
   echo "<h3 id='loginh3'>Je bent ingelogd!</h3>";}
 else{
-  // Hier zeg ik als je niet ingelogd bent wordt je teruggestuurd naar de log in pagina/
+  // Hier zeg ik als je niet ingelogd bent wordt je teruggestuurd naar de log in pagina
  header("Location: login.php");
  exit;
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +17,6 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Court</title>
-    <link rel="stylesheet" href="./CSS/style.css">
 
 </head>
 <body>
@@ -29,4 +25,3 @@ else{
     </div>
 </body>
 </html>
-
