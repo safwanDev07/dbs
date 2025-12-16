@@ -49,38 +49,13 @@ if(($methodType == "POST") && (isset($_POST["email"])))
 {
 try{
 
-    // verbinding met de db
+    // Verbind met database als app user (beperkte rechten)
     $servernaam = "localhost";
-    $gebruiker = "root";
-    $wachtwoord = "root";
+    $gebruiker = "app_user";  // Gebruikt nu de app_user met beperkte rechten
+    $wachtwoord = "user_password_secure";
+    $db = "dbsp2";
 
- // Create connection
-$conn = new mysqli($servernaam, $gebruiker, $wachtwoord);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Create database
-$sql = "CREATE DATABASE dbsp2v2";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
-
-// sql to create table
-$sql1 = "CREATE TABLE user (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-email VARCHAR(255),
-wachtwoord VARCHAR(255),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
-
-$conn->close();
-
-    // nieuwe mysqli instantie maken
-    $conn = new mysqli($servernaam, $gebruiker, $wachtwoord);
+    $conn = new mysqli($servernaam, $gebruiker, $wachtwoord, $db);
 
     if($conn->connect_error)
 {

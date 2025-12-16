@@ -9,11 +9,11 @@ if(($methodType == "POST"))
     // met deze if kijk ik of allebij de wachtwoorden overeenkomen, als dat correct is wordt de code uitgevoerd
     if($_POST["wachtwoord1"] == $_POST["wachtwoord2"]){
 try{
-    // verbinding met de db
+    // Verbind met database als app user (beperkte rechten)
     $servernaam = "localhost";
-    $gebruiker = "root";
-    $wachtwoord = "root";
-    $db = "dbsp2";   
+    $gebruiker = "app_user";  // Gebruikt nu de app_user met beperkte rechten
+    $wachtwoord = "user_password_secure";
+    $db = "dbsp2";
 
      // nieuwe mysqli instantie maken
     $conn = new mysqli($servernaam, $gebruiker, $wachtwoord, $db);
